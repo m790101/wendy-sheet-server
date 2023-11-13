@@ -1,5 +1,5 @@
 const express = require("express");
-
+const PORT = process.env.PORT || 3000
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.json())
@@ -102,6 +102,7 @@ app.post('/add', async (req, res) => {
 })
 
 
-app.listen(1337, (req, res) => console.log("app is running on http://localhost:1337/"));
 db.on('error', console.error.bind(console, 'MongoDB connection error:')) // 連線失敗
 db.once('open', (db) => console.log('Connected to MongoDB')); // 連線成功
+
+app.listen(PORT, (req, res) => console.log("app is running on http://localhost:1337/"));
