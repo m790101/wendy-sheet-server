@@ -5,6 +5,7 @@ app.set("view engine", "ejs");
 app.use(express.json())
 const mongoose = require('mongoose');
 const Item = require('./model/item')
+require('dotenv').config();
 
 // body header設置
 const {
@@ -17,7 +18,7 @@ const {
 
 
 //mongodb 連線
-const mongoDB = 'mongodb+srv://haowen:1qaz1qaz@cluster0.rzjhp.mongodb.net/wendy_item?retryWrites=true&w=majority'
+const mongoDB = process.env.MONGODB_URI
 mongoose.connect(mongoDB, { useNewUrlParser: true })
 const db = mongoose.connection
 
