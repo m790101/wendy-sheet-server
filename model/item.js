@@ -10,10 +10,13 @@ const { Schema } = mongoose;
 // });
 
 const itemSchema = new Schema({
-    // item_type: { type: String, required: true, max: 100 },
+    type: { type: String, max: 50 },
+    unit: { type: String, max: 10 },
     name: { type: String, required: true, max: 100 },
     in_stock: { type: Number, required: true },
     expire_date: { type: Date },
+    remark: { type: String, max: 100 },
+    
   });
 // AuthorSchema.virtual("lifespan").get(function () {
 //   return (
